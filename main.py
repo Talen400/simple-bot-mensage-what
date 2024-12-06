@@ -2,13 +2,27 @@ import pywhatkit
 import time
 import pyautogui
 
-mensagens =  [""" Meow """]
+mensagens = [""" Meow"""]
 
-contacts = ["+5516997511615"]
+contacts = ["+55XXXXXXXXXXX"]
 
 for contact in contacts:
     for mensagem in mensagens:
-        pywhatkit.sendwhatmsg_instantly(contact, mensagem, 15, False, 5)
-        time.sleep(4)
-        pyautogui.click(x=1850, y=9581)
-        time.sleep(2)
+        try:
+            
+            pywhatkit.sendwhatmsg_instantly(
+                contact,
+                mensagem,
+                10,       
+                False,    
+                7,       
+            )
+            
+            time.sleep(4)
+            
+            pyautogui.hotkey('ctrl', 'w')
+            
+            time.sleep(2)
+            
+        except Exception as e:
+            print(f" Error Contact:  {contact}: {e}")
