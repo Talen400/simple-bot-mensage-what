@@ -3,7 +3,7 @@ import time
 import pyautogui
 import pandas as pd
 
-csv_file = "data/telefones-pythonbasico1.csv"
+csv_file = "path"
 
 df = pd.read_csv(csv_file)
 
