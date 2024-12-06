@@ -1,10 +1,19 @@
 import pywhatkit
 import time
 import pyautogui
+import pandas as pd
 
-mensagens = [""" Meow"""]
+csv_file = "Path"
 
-contacts = ["+55XXXXXXXXXXX"]
+df = pd.read_csv(csv_file)
+
+df["telefone"] = df.telefone.astype(str)
+
+df['telefone'] = df['telefone'].apply(lambda x: f"+{x}")
+
+contacts = df.telefone.tolist()
+
+mensagens = [""" Meow """]
 
 for contact in contacts:
     for mensagem in mensagens:
@@ -13,9 +22,9 @@ for contact in contacts:
             pywhatkit.sendwhatmsg_instantly(
                 contact,
                 mensagem,
-                10,       
+                15,       
                 False,    
-                7,       
+                5,
             )
             
             time.sleep(4)
